@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:margin-left="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>
+
+<body>
+<div>
+    <h2 class="my-5">
+        <a th:href="@{/load-with-java}" class="btn btn-primary"
+           style="background-color:#1c87c9; color:#fff;"><i class="fas book ml-2">Start V1</i></a>
+    </h2>
+    <h2 class="my-5">
+    <a th:href="@{/load-with-postgres}" class="btn btn-primary"
+       style="background-color:#1c87c9; color:#fff;"><i class="fas book ml-2">Start V2</i></a>
+</h2>
+</div>
+<div class="row">
+    <div class="col-sm">
+        <table class="table table-striped table-responsive-md" th:id="sales">
+            <thead style="background-color:#1c87c9; color:#fff;">
+            <tr>
+                <th>rc_id</th>
+                <th>ar_id</th>
+                <th>wh_id</th>
+                <th>sales</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="salesTable : ${salesTable}">
+                <td th:text="${salesTable.getRc_id()}"></td>
+                <td th:text="${salesTable.getAr_id()}"></td>
+                <td th:text="${salesTable.getWh_id()}"></td>
+                <td th:text="${salesTable.getSales()}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-sm">
+        <table class="table table-striped table-responsive-md" th:id="value">
+            <thead style="background-color:#1c87c9; color:#fff;">
+            <tr>
+                <th>rc_id</th>
+                <th>ar_id</th>
+                <th>wh_id</th>
+                <th>type_id</th>
+                <th>qnty</th>
+                <th>perc</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="valueTable : ${valueTable}">
+                <td th:text="${valueTable.getRc_id()}"></td>
+                <td th:text="${valueTable.getAr_id()}"></td>
+                <td th:text="${valueTable.getWh_id()}"></td>
+                <td th:text="${valueTable.getType_id()}"></td>
+                <td th:text="${valueTable.getQnty()}"></td>
+                <td th:text="${valueTable.getPerc()}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-sm">
+        <table class="table table-striped table-responsive-md" th:id="order_one">
+            <thead style="background-color:#1c87c9; color:#fff;">
+            <tr>
+                <th>order_one</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="orderOneItemList : ${orderOneItemList}">
+                <td th:text="${orderOneItemList.getOrderOne}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-sm">
+        <table class="table table-striped table-responsive-md" th:id="order_max">
+            <thead style="background-color:#1c87c9; color:#fff;">
+            <tr>
+                <th>order_max</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="orderMaxList : ${orderMaxList}">
+                <td th:text="${orderMaxList}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-sm">
+        <table class="table table-striped table-responsive-md" th:id="order_itog">
+            <thead style="background-color:#1c87c9; color:#fff;">
+            <tr>
+                <th>order_itog</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="orderItogList : ${orderItogList}">
+                <td th:text="${orderItogList}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-sm">
+        <table class="table table-striped table-responsive-md" th:id="avg">
+            <thead style="background-color:#1c87c9; color:#fff;">
+            <tr>
+                <th>AVG_order_one(rc_id)</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="orderAvgList : ${orderAvgList}">
+                <td th:text="${orderAvgList}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-sm">
+        <table class="table table-striped table-responsive-md" th:id="sum">
+            <thead style="background-color:#1c87c9; color:#fff;">
+            <tr>
+                <th>SUM_order_one(rc/wh)</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="orderSumList : ${orderSumList}">
+                <td th:text="${orderSumList}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+</body>
+
+</html>
